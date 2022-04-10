@@ -1,0 +1,8 @@
+@import url(../blocks/vendor/normalize.css);
+@import url(../blocks/vendor/fonts/fonts.css);
+
+.page {
+	max-width: 1280px;
+	background-color: #000000;
+	font-family: 'Inter';
+}
