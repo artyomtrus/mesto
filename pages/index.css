@@ -5,4 +5,11 @@
 	max-width: 1280px;
 	background-color: #000000;
 	font-family: 'Inter';
+	margin: auto;
+	padding: 0 200px;
+}
+
+.header {
+	padding: 45px 0 41px;
+ 	border-bottom: 1px solid rgba(84, 84, 84, .7);
 }
