@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="ru">
+
 <head>
 	<meta charset="UTF-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,6 +8,7 @@
 	<link rel="stylesheet" href="./pages/index.css">
 	<title>Mesto</title>
 </head>
+
 <body class="page">
 	<header class="header">
 		<img src="./images/logo.svg" alt="Логотип" class="header__logo">
@@ -15,9 +17,90 @@
 	<main>
 		<section class="profile">
 			<img src="./images/avatar.jpg" alt="Аватар" class="profile__avatar">
+			<div class="profile__info">
+				<h2 class="profile__name">
+					Жак-Ив-Кусто
+					<a href="#" class="profile__edit-button">
+						<img src="./images/Edit Button.svg" alt="кнопка редактирования">
+					</a>
+				</h2>
+				<p class="profile__profession">
+					Исследователь океана
+				</p>
+			</div>
+			<a href="#" class="profile__add-buton">
+				<img src="./images/Vector.svg" alt="кнопка добавления" class="profile__icon">
+			</a>
+		</section>
+
+		<section>
+			<ul class="elements">
+				<li class="element">
+					<img src="./images/minsk.jpg" alt="минск" class="element__image">
+					<div class="element__footer">
+						<h2 class="element__title">
+							Минск
+						</h2>
+						<img src="./images/like.svg" alt="лайк" class="element__like">
+					</div>
+				</li>
+
+				<li class="element">
+					<img src="./images/brest.jpg" alt="брест" class="element__image">
+					<div class="element__footer">
+						<h2 class="element__title">
+							Брест
+						</h2>
+						<img src="./images/like.svg" alt="лайк" class="element__like">
+					</div>
+				</li>
+
+				<li class="element">
+					<img src="./images/hrodno.jpg" alt="гродно" class="element__image">
+					<div class="element__footer">
+						<h2 class="element__title">
+							Гродно
+						</h2>
+						<img src="./images/like.svg" alt="лайк" class="element__like">
+					</div>
+				</li>
+
+				<li class="element">
+					<img src="./images/vitebsk.jpg" alt="витебск" class="element__image">
+					<div class="element__footer">
+						<h2 class="element__title">
+							Витебск
+						</h2>
+						<img src="./images/like.svg" alt="лайк" class="element__like">
+					</div>
+				</li>
+
+				<li class="element">
+					<img src="./images/gomel.jpg" alt="гомель" class="element__image">
+					<div class="element__footer">
+						<h2 class="element__title">
+							Гомель
+						</h2>
+						<img src="./images/like.svg" alt="лайк" class="element__like">
+					</div>
+				</li>
+
+				<li class="element">
+					<img src="./images/mogilev.jpg" alt="могилев" class="element__image">
+					<div class="element__footer">
+						<h2 class="element__title">
+							Могилев
+						</h2>
+						<img src="./images/like.svg" alt="лайк" class="element__like">
+					</div>
+				</li>
+
 		</section>
 	</main>
-	
-	
+	<footer class="footer">
+		© 2020 Mesto Russia
+	</footer>
+
 </body>
+
 </html>
