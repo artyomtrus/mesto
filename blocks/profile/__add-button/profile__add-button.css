@@ -1,0 +1,16 @@
+.profile__add-buton {
+	box-sizing: border-box;
+	border: 2px solid #ffffff;
+	min-height: 50px;
+	min-width: 150px;
+	padding: auto;
+	margin-left: auto;
+	position: relative;
+}
+
+@media screen and (max-width: 660px) {
+	.profile__add-buton {
+		min-width: 282px;
+		margin: 0 auto;
+	}
+}

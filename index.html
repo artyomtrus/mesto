@@ -21,7 +21,7 @@
 				<h2 class="profile__name">
 					Жак-Ив-Кусто
 					<a href="#" class="profile__edit-button">
-						<img src="./images/Edit Button.svg" alt="кнопка редактирования">
+						<img src="./images/EditButton.svg" alt="кнопка редактирования">
 					</a>
 				</h2>
 				<p class="profile__profession">
@@ -94,13 +94,26 @@
 						<img src="./images/like.svg" alt="лайк" class="element__like">
 					</div>
 				</li>
-
+			</ul>
 		</section>
 	</main>
 	<footer class="footer">
 		© 2020 Mesto Russia
 	</footer>
 
+	<div class="popup">
+		<div class="popup__container">
+			<button class="popup__close"></button>
+			<h3 class="popup__title">
+				Редактировать профиль
+			</h3>
+			<input type="text" class="popup__name" placeholder="Жак-Ив-Кусто">
+			<input type="text" class="popup__profession" placeholder="Исследователь океана">
+			<button class="popup__button" type="button">
+				Сохранить
+			</button>
+		</div>
+	</div>
 </body>
 
 </html>
