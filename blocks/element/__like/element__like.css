@@ -1,3 +1,7 @@
 .element__like {
 	max-height: 19px;
 }
+
+.element__like:hover {
+	cursor: pointer;
+}
