@@ -1,7 +1,7 @@
 .page {
 	max-width: 880px;
 	background-color: #000000;
-	font-family: 'Inter';
+	font-family: 'Inter','Times New Roman', Times, serif;
 	margin: auto;
 	color: white;
 }
@@ -10,10 +10,4 @@
 	.page {
 	max-width: 581px;
 }
-}
-
-@media screen and (max-width: 660px) {
-	.page {
-		max-width: 581px;
-	}
 }

@@ -19,10 +19,10 @@
 			<img src="./images/avatar.jpg" alt="Аватар" class="profile__avatar">
 			<div class="profile__info">
 				<h1 class="profile__name">Жак-Ив Кусто</h1>
-				<button class="profile__edit-button opacity"></button>
+				<button class="profile__edit-button opacity" type="button" aria-label="редактирование профиля"></button>
 				<p class="profile__profession">Исследователь океана</p>
 			</div>
-			<button class="profile__add-buton opacity"></button>
+			<button class="profile__add-buton opacity" type="button" aria-label="добавление контента"></button>
 		</section>
 
 		<section>
@@ -33,7 +33,7 @@
 						<h2 class="element__title">
 							Минск
 						</h2>
-						<img src="./images/like.svg" alt="лайк" class="element__like element__like_active opacity">
+						<button class="element__like" type="button" aria-label="лайк"></button>
 					</div>
 				</li>
 
@@ -43,7 +43,7 @@
 						<h2 class="element__title">
 							Брест
 						</h2>
-						<img src="./images/like.svg" alt="лайк" class="element__like opacity">
+						<button class="element__like" type="button" aria-label="лайк"></button>
 					</div>
 				</li>
 
@@ -53,7 +53,7 @@
 						<h2 class="element__title">
 							Гродно
 						</h2>
-						<img src="./images/like.svg" alt="лайк" class="element__like opacity">
+						<button class="element__like" type="button" aria-label="лайк"></button>
 					</div>
 				</li>
 
@@ -63,7 +63,7 @@
 						<h2 class="element__title">
 							Витебск
 						</h2>
-						<img src="./images/like.svg" alt="лайк" class="element__like opacity">
+						<button class="element__like" type="button" aria-label="лайк"></button>
 					</div>
 				</li>
 
@@ -73,7 +73,7 @@
 						<h2 class="element__title">
 							Гомель
 						</h2>
-						<img src="./images/like.svg" alt="лайк" class="element__like opacity">
+						<button class="element__like" type="button" aria-label="лайк"></button>
 					</div>
 				</li>
 
@@ -83,27 +83,29 @@
 						<h2 class="element__title">
 							Могилев
 						</h2>
-						<img src="./images/like.svg" alt="лайк" class="element__like opacity">
+						<button class="element__like" type="button" aria-label="лайк"></button>
 					</div>
 				</li>
 			</ul>
 		</section>
 	</main>
-	<footer class="footer">
-		© 2020 Mesto Russia
+	<footer>
+		<p class="footer">© 2020 Mesto Russia</p>
 	</footer>
 
 	<div class="popup">
 		<div class="popup__container">
-			<button class="popup__close opacity" type="button"></button>
+			<button class="popup__close opacity" type="button" aria-label="закрыть"></button>
 			<h3 class="popup__title">
 				Редактировать профиль
 			</h3>
-			<input type="text" class="popup__name">
-			<input type="text" class="popup__profession">
-			<button class="popup__button-save opacity" type="submit">
-				Сохранить
-			</button>
+			<form class="popup__form" name="popupForm">
+				<input type="text" name="popupName" class="popup__name" placeholder="Имя">
+				<input type="text" name="popupProfession" class="popup__profession" placeholder="О себе">
+				<button class="popup__button opacity" type="submit" aria-label="сохранить">
+					Сохранить
+				</button>
+			</form>
 		</div>
 	</div>
 

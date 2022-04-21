@@ -1,10 +1,7 @@
 .profile__add-buton {
 	box-sizing: border-box;
-	background-color: transparent;
 	border: 2px solid #ffffff;
-	background-image: url(../../../images/AddButton.svg);
-	background-repeat: no-repeat;
-	background-position: center;
+	background: url(../../../images/AddButton.svg) no-repeat center transparent;
 	min-height: 50px;
 	min-width: 150px;
 	margin-left: auto;

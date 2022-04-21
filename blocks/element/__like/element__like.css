@@ -1,7 +1,12 @@
 .element__like {
-	max-height: 19px;
+	padding: 0;
+	border: none;
+	min-height: 19px;
+	min-width: 22px;
+	background: url(../../../images/like.svg) transparent;
 }
 
 .element__like:hover {
 	cursor: pointer;
+	opacity: .5;
 }

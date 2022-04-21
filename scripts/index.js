@@ -3,43 +3,30 @@
 const profileEditButton = document.querySelector('.profile__edit-button');
 const editWindow = document.querySelector('.popup');
 const editWindowClose = document.querySelector('.popup__close');
-
-function toggleEditWindow() {
-	editWindow.classList.toggle('popup_is-active');
-}
-
-profileEditButton.addEventListener('click', toggleEditWindow);
-editWindowClose.addEventListener('click', toggleEditWindow);
-
-function overlayClickEditWindow(event) {
-	if (event.target === event.currentTarget) {
-		toggleEditWindow();
-	}
-}
-
-editWindow.addEventListener('click', overlayClickEditWindow);
-
-//редактирование
 const profileName = document.querySelector('.profile__name');
 const editProfileName = document.querySelector('.popup__name');
 const profileProfession = document.querySelector('.profile__profession');
 const editProfession = document.querySelector('.popup__profession');
+const editForm = document.querySelector('.popup__form');
 
-
-function submitProfileName(event) {
+function openEditWindow() {
+	editWindow.classList.add('popup_is-active');
 	editProfileName.value = profileName.textContent;
 	editProfession.value = profileProfession.textContent;
 }
 
-profileEditButton.addEventListener('click', submitProfileName)
-
-//сохранение
-const buttonSave = document.querySelector('.popup__button-save');
-
-function saveInfo() {
-	profileName.textContent = editProfileName.value;
-	profileProfession.textContent = editProfession.value;
+function closeEditWindow() {
 	editWindow.classList.remove('popup_is-active');
 }
 
-buttonSave.addEventListener('click', saveInfo);
+profileEditButton.addEventListener('click', openEditWindow);
+editWindowClose.addEventListener('click', closeEditWindow);
+
+function saveInfo(e) {
+	e.preventDefault();
+	profileName.textContent = editProfileName.value;
+	profileProfession.textContent = editProfession.value;
+	closeEditWindow();
+}
+
+editForm.addEventListener('submit', saveInfo);
