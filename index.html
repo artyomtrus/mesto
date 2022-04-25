@@ -1,116 +1,157 @@
 <!DOCTYPE html>
 <html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./pages/index.css" />
+    <title>Mesto</title>
+  </head>
 
-<head>
-	<meta charset="UTF-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<link rel="stylesheet" href="./pages/index.css">
-	<title>Mesto</title>
-</head>
+  <body class="page">
+    <header class="header">
+      <img src="./images/logo.svg" alt="Логотип" class="header__logo" />
+    </header>
 
-<body class="page">
-	<header class="header">
-		<img src="./images/logo.svg" alt="Логотип" class="header__logo">
-	</header>
+    <main>
+      <section class="profile">
+        <img src="./images/avatar.jpg" alt="Аватар" class="profile__avatar" />
+        <div class="profile__info">
+          <h1 class="profile__name">Жак-Ив Кусто</h1>
+          <button
+            class="profile__edit-button opacity"
+            type="button"
+            aria-label="редактирование профиля"
+          ></button>
+          <p class="profile__profession">Исследователь океана</p>
+        </div>
+        <button
+          class="profile__add-buton opacity"
+          type="button"
+          aria-label="добавление контента"
+        ></button>
+      </section>
 
-	<main>
-		<section class="profile">
-			<img src="./images/avatar.jpg" alt="Аватар" class="profile__avatar">
-			<div class="profile__info">
-				<h1 class="profile__name">Жак-Ив Кусто</h1>
-				<button class="profile__edit-button opacity" type="button" aria-label="редактирование профиля"></button>
-				<p class="profile__profession">Исследователь океана</p>
-			</div>
-			<button class="profile__add-buton opacity" type="button" aria-label="добавление контента"></button>
-		</section>
+      <section>
+        <ul class="elements">
+          <li class="element">
+            <img src="./images/minsk.jpg" alt="минск" class="element__image" />
+            <div class="element__footer">
+              <h2 class="element__title">Минск</h2>
+              <button
+                class="element__like"
+                type="button"
+                aria-label="лайк"
+              ></button>
+            </div>
+          </li>
 
-		<section>
-			<ul class="elements">
-				<li class="element">
-					<img src="./images/minsk.jpg" alt="минск" class="element__image">
-					<div class="element__footer">
-						<h2 class="element__title">
-							Минск
-						</h2>
-						<button class="element__like" type="button" aria-label="лайк"></button>
-					</div>
-				</li>
+          <li class="element">
+            <img src="./images/brest.jpg" alt="брест" class="element__image" />
+            <div class="element__footer">
+              <h2 class="element__title">Брест</h2>
+              <button
+                class="element__like"
+                type="button"
+                aria-label="лайк"
+              ></button>
+            </div>
+          </li>
 
-				<li class="element">
-					<img src="./images/brest.jpg" alt="брест" class="element__image">
-					<div class="element__footer">
-						<h2 class="element__title">
-							Брест
-						</h2>
-						<button class="element__like" type="button" aria-label="лайк"></button>
-					</div>
-				</li>
+          <li class="element">
+            <img
+              src="./images/hrodno.jpg"
+              alt="гродно"
+              class="element__image"
+            />
+            <div class="element__footer">
+              <h2 class="element__title">Гродно</h2>
+              <button
+                class="element__like"
+                type="button"
+                aria-label="лайк"
+              ></button>
+            </div>
+          </li>
 
-				<li class="element">
-					<img src="./images/hrodno.jpg" alt="гродно" class="element__image">
-					<div class="element__footer">
-						<h2 class="element__title">
-							Гродно
-						</h2>
-						<button class="element__like" type="button" aria-label="лайк"></button>
-					</div>
-				</li>
+          <li class="element">
+            <img
+              src="./images/vitebsk.jpg"
+              alt="витебск"
+              class="element__image"
+            />
+            <div class="element__footer">
+              <h2 class="element__title">Витебск</h2>
+              <button
+                class="element__like"
+                type="button"
+                aria-label="лайк"
+              ></button>
+            </div>
+          </li>
 
-				<li class="element">
-					<img src="./images/vitebsk.jpg" alt="витебск" class="element__image">
-					<div class="element__footer">
-						<h2 class="element__title">
-							Витебск
-						</h2>
-						<button class="element__like" type="button" aria-label="лайк"></button>
-					</div>
-				</li>
+          <li class="element">
+            <img src="./images/gomel.jpg" alt="гомель" class="element__image" />
+            <div class="element__footer">
+              <h2 class="element__title">Гомель</h2>
+              <button
+                class="element__like"
+                type="button"
+                aria-label="лайк"
+              ></button>
+            </div>
+          </li>
 
-				<li class="element">
-					<img src="./images/gomel.jpg" alt="гомель" class="element__image">
-					<div class="element__footer">
-						<h2 class="element__title">
-							Гомель
-						</h2>
-						<button class="element__like" type="button" aria-label="лайк"></button>
-					</div>
-				</li>
+          <li class="element">
+            <img
+              src="./images/mogilev.jpg"
+              alt="могилев"
+              class="element__image"
+            />
+            <div class="element__footer">
+              <h2 class="element__title">Могилев</h2>
+              <button
+                class="element__like"
+                type="button"
+                aria-label="лайк"
+              ></button>
+            </div>
+          </li>
+        </ul>
+      </section>
+    </main>
+    <footer>
+      <p class="footer">© 2020 Mesto Russia</p>
+    </footer>
 
-				<li class="element">
-					<img src="./images/mogilev.jpg" alt="могилев" class="element__image">
-					<div class="element__footer">
-						<h2 class="element__title">
-							Могилев
-						</h2>
-						<button class="element__like" type="button" aria-label="лайк"></button>
-					</div>
-				</li>
-			</ul>
-		</section>
-	</main>
-	<footer>
-		<p class="footer">© 2020 Mesto Russia</p>
-	</footer>
+    <div class="popup">
+      <div class="popup__container">
+        <button
+          class="popup__close opacity"
+          type="button"
+          aria-label="закрыть"
+        ></button>
+        <h3 class="popup__title">Редактировать профиль</h3>
+        <form class="popup__form" name="popupForm">
+          <input
+            type="text"
+            name="popupName"
+            class="popup__name"
+            placeholder="Имя"
+          />
+          <input
+            type="text"
+            name="popupProfession"
+            class="popup__profession"
+            placeholder="О себе"
+          />
+          <button class="popup__button" type="submit" aria-label="сохранить">
+            Сохранить
+          </button>
+        </form>
+      </div>
+    </div>
 
-	<div class="popup">
-		<div class="popup__container">
-			<button class="popup__close opacity" type="button" aria-label="закрыть"></button>
-			<h3 class="popup__title">
-				Редактировать профиль
-			</h3>
-			<form class="popup__form" name="popupForm">
-				<input type="text" name="popupName" class="popup__name" placeholder="Имя">
-				<input type="text" name="popupProfession" class="popup__profession" placeholder="О себе">
-				<button class="popup__button" type="submit" aria-label="сохранить">
-					Сохранить
-				</button>
-			</form>
-		</div>
-	</div>
-
-	<script src="./scripts/index.js"></script>
-
-</body>
-
+    <script src="./scripts/index.js"></script>
+  </body>
 </html>
