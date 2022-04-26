@@ -33,96 +33,27 @@
       </section>
 
       <section>
-        <ul class="elements">
-          <li class="element">
-            <img src="./images/minsk.jpg" alt="минск" class="element__image" />
-            <div class="element__footer">
-              <h2 class="element__title">Минск</h2>
-              <button
-                class="element__like"
-                type="button"
-                aria-label="лайк"
-              ></button>
-            </div>
-          </li>
-
-          <li class="element">
-            <img src="./images/brest.jpg" alt="брест" class="element__image" />
-            <div class="element__footer">
-              <h2 class="element__title">Брест</h2>
-              <button
-                class="element__like"
-                type="button"
-                aria-label="лайк"
-              ></button>
-            </div>
-          </li>
-
-          <li class="element">
-            <img
-              src="./images/hrodno.jpg"
-              alt="гродно"
-              class="element__image"
-            />
-            <div class="element__footer">
-              <h2 class="element__title">Гродно</h2>
-              <button
-                class="element__like"
-                type="button"
-                aria-label="лайк"
-              ></button>
-            </div>
-          </li>
-
-          <li class="element">
-            <img
-              src="./images/vitebsk.jpg"
-              alt="витебск"
-              class="element__image"
-            />
-            <div class="element__footer">
-              <h2 class="element__title">Витебск</h2>
-              <button
-                class="element__like"
-                type="button"
-                aria-label="лайк"
-              ></button>
-            </div>
-          </li>
-
-          <li class="element">
-            <img src="./images/gomel.jpg" alt="гомель" class="element__image" />
-            <div class="element__footer">
-              <h2 class="element__title">Гомель</h2>
-              <button
-                class="element__like"
-                type="button"
-                aria-label="лайк"
-              ></button>
-            </div>
-          </li>
-
-          <li class="element">
-            <img
-              src="./images/mogilev.jpg"
-              alt="могилев"
-              class="element__image"
-            />
-            <div class="element__footer">
-              <h2 class="element__title">Могилев</h2>
-              <button
-                class="element__like"
-                type="button"
-                aria-label="лайк"
-              ></button>
-            </div>
-          </li>
-        </ul>
+        <ul class="elements"></ul>
       </section>
     </main>
+
     <footer>
       <p class="footer">© 2020 Mesto Russia</p>
     </footer>
+
+    <template id="elements">
+      <li class="element">
+        <img src="" alt="" class="element__image" />
+        <div class="element__footer">
+          <h2 class="element__title"></h2>
+          <button
+            class="element__like"
+            type="button"
+            aria-label="лайк"
+          ></button>
+        </div>
+      </li>
+    </template>
 
     <div class="popup">
       <div class="popup__container">
@@ -147,6 +78,34 @@
           />
           <button class="popup__button" type="submit" aria-label="сохранить">
             Сохранить
+          </button>
+        </form>
+      </div>
+    </div>
+
+    <div class="popup-add">
+      <div class="popup-add__container">
+        <button
+          class="popup-add__close opacity"
+          type="button"
+          aria-label="закрыть"
+        ></button>
+        <h3 class="popup-add__title">Новое место</h3>
+        <form class="popup-add__form" name="popupAddForm">
+          <input
+            type="text"
+            name="popupaddName"
+            class="popup-add__name"
+            placeholder="Название"
+          />
+          <input
+            type="text"
+            name="popupAddLink"
+            class="popup-add__link"
+            placeholder="Ссылка на картинку"
+          />
+          <button class="popup-add__button" type="submit" aria-label="Создать">
+            Создать
           </button>
         </form>
       </div>
