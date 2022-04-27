@@ -1,4 +1,4 @@
-//!открыть-закрыть popup
+//открыть-закрыть popup
 
 const profileEditButton = document.querySelector(".profile__edit-button");
 const addButton = document.querySelector(".profile__add-buton");
@@ -36,7 +36,7 @@ editWindowClose.addEventListener("click", closeEditWindow);
 addButton.addEventListener("click", openAddWindow);
 addWindowClose.addEventListener("click", closeAddWindow);
 
-//!сохранить информацию
+//сохранить информацию
 
 function saveInfo(e) {
   e.preventDefault();
@@ -76,7 +76,7 @@ const initialCards = [
   },
 ];
 
-//!переменные
+//переменные
 
 const elements = document.querySelector(".elements");
 const addForm = document.querySelector(".popup-add__form");
@@ -87,11 +87,11 @@ const cardElement = document
   .querySelector("#elements")
   .content.querySelector(".element");
 
-//!обработчик
+//обработчик
 
 addForm.addEventListener("submit", addFormSubmit);
 
-//!функция добавления карточки
+//функции
 
 function addFormSubmit(e) {
   e.preventDefault();
@@ -101,15 +101,33 @@ function addFormSubmit(e) {
   closeAddWindow();
 }
 
+function like(e) {
+  e.target
+    .closest(".element__like")
+    .classList.toggle("element__like_active");
+}
+
+function deleteCard(e) {
+  e.target.closest(".element").remove();
+}
+
 function generateElement(addCard) {
   const newElement = cardElement.cloneNode(true);
   const cardTitle = newElement.querySelector(".element__title");
   const cardLink = newElement.querySelector(".element__image");
   cardLink.src = addCard.link;
   cardTitle.textContent = addCard.name;
+
+  const likeButton = newElement.querySelector(".element__like");
+  likeButton.addEventListener("click", like);
+
+  const deleteButton = newElement.querySelector(".element__del");
+  deleteButton.addEventListener("click", deleteCard);
+
   return newElement;
 }
 
 initialCards.forEach((addCard) => {
   elements.append(generateElement(addCard));
 });
+
