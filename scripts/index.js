@@ -18,7 +18,7 @@ function openEditWindow() {
   editProfession.value = profileProfession.textContent;
 }
 
-function closeEditWindow() {
+function closeEditWindow(e) {
   editWindow.classList.remove("popup_is-active");
 }
 
@@ -35,8 +35,6 @@ editWindowClose.addEventListener("click", closeEditWindow);
 
 addButton.addEventListener("click", openAddWindow);
 addWindowClose.addEventListener("click", closeAddWindow);
-
-//сохранить информацию
 
 function saveInfo(e) {
   e.preventDefault();
@@ -76,8 +74,6 @@ const initialCards = [
   },
 ];
 
-//переменные
-
 const elements = document.querySelector(".elements");
 const addForm = document.querySelector(".popup-add__form");
 const inputName = document.querySelector(".popup-add__name");
@@ -87,11 +83,7 @@ const cardElement = document
   .querySelector("#elements")
   .content.querySelector(".element");
 
-//обработчик
-
 addForm.addEventListener("submit", addFormSubmit);
-
-//функции
 
 function addFormSubmit(e) {
   e.preventDefault();
@@ -101,28 +93,42 @@ function addFormSubmit(e) {
   closeAddWindow();
 }
 
-function like(e) {
-  e.target
-    .closest(".element__like")
-    .classList.toggle("element__like_active");
-}
-
-function deleteCard(e) {
-  e.target.closest(".element").remove();
-}
-
 function generateElement(addCard) {
   const newElement = cardElement.cloneNode(true);
   const cardTitle = newElement.querySelector(".element__title");
-  const cardLink = newElement.querySelector(".element__image");
-  cardLink.src = addCard.link;
+  const cardImage = newElement.querySelector(".element__image");
+  cardImage.src = addCard.link;
+  cardImage.alt = addCard.name;
   cardTitle.textContent = addCard.name;
 
   const likeButton = newElement.querySelector(".element__like");
   likeButton.addEventListener("click", like);
 
+  function like(e) {
+    e.target.classList.toggle("element__like_active");
+  }
+
   const deleteButton = newElement.querySelector(".element__del");
-  deleteButton.addEventListener("click", deleteCard);
+  deleteButton.addEventListener("click", () => {
+    newElement.remove();
+  });
+
+  const popupImage = document.querySelector(".popup-image");
+  const popupImagePic = document.querySelector(".popup-image__pic");
+  const popupImageTitle = document.querySelector(".popup-image__title");
+
+  cardImage.addEventListener("click", () => {
+    popupImage.classList.add("popup-image_is-active");
+    popupImagePic.src = addCard.link;
+    popupImagePic.alt = addCard.name;
+    popupImageTitle.textContent = addCard.name;
+  });
+
+  const closeButtonPopupImage = document.querySelector(".popup-image__close");
+  closeButtonPopupImage.addEventListener("click", closePopupImage);
+  function closePopupImage() {
+    popupImage.classList.remove("popup-image_is-active");
+  }
 
   return newElement;
 }
@@ -130,4 +136,3 @@ function generateElement(addCard) {
 initialCards.forEach((addCard) => {
   elements.append(generateElement(addCard));
 });
-
