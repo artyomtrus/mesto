@@ -47,15 +47,34 @@ const popupTypeImage = document.querySelector(".popup_type_image");
 const popupImage = document.querySelector(".popup__image");
 const popupImageTitle = document.querySelector(".popup__title-image");
 const buttonClosePopupImage = document.querySelector(".popup__close_type_image");
+const popup = document.querySelectorAll(".popup");
 
 //!функции
 
 function closePopup(close) {
   close.classList.remove("popup_is-active");
+  document.removeEventListener("keydown", closePopupEscape);
 }
 
 function openPopup(open) {
   open.classList.add("popup_is-active");
+  document.addEventListener("keydown", closePopupEscape);
+}
+
+function closePopupOverlay(e) {
+  if (e.target === e.currentTarget) {
+    for (let i = 0; i < popup.length; i++) {
+      closePopup(popup[i]);
+    }
+  }
+}
+
+function closePopupEscape(e) {
+  if (e.key === "Escape") {
+    for (let i = 0; i < popup.length; i++) {
+      closePopup(popup[i]);
+    }
+  }
 }
 
 function openEditWindow() {
@@ -131,13 +150,13 @@ addButton.addEventListener("click", () => {
   openPopup(addWindow);
 });
 
+popup.forEach((e) => {
+  e.addEventListener("mousedown", closePopupOverlay);
+});
+
 buttonCloseAddPopup.addEventListener("click", () => {
   closePopup(addWindow);
 });
-
-editForm.addEventListener("submit", saveInfo);
-
-addForm.addEventListener("submit", addFormSubmit);
 
 buttonClosePopupImage.addEventListener("click", () => {
   closePopup(popupTypeImage);

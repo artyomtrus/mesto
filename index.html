@@ -18,10 +18,18 @@
         <img src="./images/avatar.jpg" alt="Аватар" class="profile__avatar" />
         <div class="profile__info">
           <h1 class="profile__name">Жак-Ив Кусто</h1>
-          <button class="profile__edit-button opacity" type="button" aria-label="редактирование профиля"></button>
+          <button
+            class="profile__edit-button opacity"
+            type="button"
+            aria-label="редактирование профиля"
+          ></button>
           <p class="profile__profession">Исследователь океана</p>
         </div>
-        <button class="profile__add-buton opacity" type="button" aria-label="добавление контента"></button>
+        <button
+          class="profile__add-buton opacity"
+          type="button"
+          aria-label="добавление контента"
+        ></button>
       </section>
 
       <section>
@@ -46,46 +54,109 @@
 
     <div class="popup popup_type_edit">
       <div class="popup__container">
-        <button class="popup__close popup__close_type_edit opacity" type="button" aria-label="закрыть"></button>
+        <button
+          class="popup__close popup__close_type_edit opacity"
+          type="button"
+          aria-label="закрыть"
+        ></button>
         <h3 class="popup__title">Редактировать профиль</h3>
-        <form class="popup__form popup__form_type_edit" name="popupForm">
-          <input type="text" name="popupName" class="popup__name popup__name_type_edit" placeholder="Имя" />
+        <form
+          id="editForm"
+          class="popup__form popup__form_type_edit"
+          name="popupEditForm"
+          novalidate
+        >
           <input
+            id="name-input"
+            type="text"
+            name="popupName"
+            class="popup__name popup__input popup__name_type_edit"
+            placeholder="Имя"
+            minlength="2"
+            maxlength="40"
+            required
+          />
+          <span class="name-input-error"></span>
+          <input
+            id="profession-input"
             type="text"
             name="popupProfession"
-            class="popup__profession popup__profession_type_edit"
+            class="popup__profession popup__input popup__profession_type_edit"
             placeholder="О себе"
+            minlength="2"
+            maxlength="200"
+            required
           />
-          <button class="popup__button popup__button_type_edit" type="submit" aria-label="сохранить">Сохранить</button>
+          <span class="profession-input-error"></span>
+          <button
+            class="popup__button popup__button_type_edit"
+            type="submit"
+            aria-label="сохранить"
+          >
+            Сохранить
+          </button>
         </form>
       </div>
     </div>
 
     <div class="popup popup_type_add">
       <div class="popup__container">
-        <button class="popup__close popup__close_type_add opacity" type="button" aria-label="закрыть"></button>
+        <button
+          class="popup__close popup__close_type_add opacity"
+          type="button"
+          aria-label="закрыть"
+        ></button>
         <h3 class="popup__title">Новое место</h3>
-        <form class="popup__form popup__form_type_add" name="popupAddForm">
-          <input type="text" name="popupaddName" class="popup__name popup__name_type_add" placeholder="Название" />
+        <form
+          id="addForm"
+          class="popup__form popup__form_type_add"
+          name="popupAddForm"
+          novalidate
+        >
           <input
+            id="add-name-input"
             type="text"
-            name="popupAddLink"
-            class="popup__link popup__link_type_add"
-            placeholder="Ссылка на картинку"
+            name="popupAddName"
+            class="popup__name popup__name_type_add popup__input"
+            placeholder="Название"
+            minlength="2"
+            maxlength="30"
+            required
           />
-          <button class="popup__button popup__button_type_add" type="submit" aria-label="Создать">Создать</button>
+          <span class="add-name-input-error"></span>
+          <input
+            id="url-input"
+            type="url"
+            name="popupAddLink"
+            class="popup__link popup__link_type_add popup__input"
+            placeholder="Ссылка на картинку"
+            required
+          />
+          <span class="url-input-error"></span>
+          <button
+            class="popup__button popup__button_type_add"
+            type="submit"
+            aria-label="Создать"
+          >
+            Создать
+          </button>
         </form>
       </div>
     </div>
 
     <div class="popup popup_type_image">
       <div class="popup__container-image">
-        <button class="popup__close popup__close_type_image opacity" type="button" aria-label="закрыть"></button>
+        <button
+          class="popup__close popup__close_type_image opacity"
+          type="button"
+          aria-label="закрыть"
+        ></button>
         <img src="#" alt="" class="popup__image" />
         <h2 class="popup__title-image"></h2>
       </div>
     </div>
 
     <script src="./scripts/index.js"></script>
+    <script src="./scripts/validate.js"></script>
   </body>
 </html>
