@@ -95,27 +95,20 @@ function generateElement(addCard) {
 
   deleteButton.addEventListener("click", deleteCard);
 
-  //function deleteCard() {
-  //  deleteClass(newElement);
-  //}
   cardImage.addEventListener("click", () => {
     openPopupImage(popupImage, popupImageTitle, addCard);
   });
-  //function openPopupImage() {
-  //  fillPopupImage(popupImage, popupImageTitle, addCard);
-  //  openPopup(popupTypeImage);
-  //}
 
   return newElement;
 }
 
-function validationEditForm (formElement, e) {
+function validationEditForm(formElement, e) {
   if (formElement.id === "editForm") {
     saveInfo(e);
   }
 }
 
-function validationAddForm (formElement, e) {
+function validationAddForm(formElement, e) {
   if (formElement.id === "addForm") {
     addFormSubmit(e);
   }
