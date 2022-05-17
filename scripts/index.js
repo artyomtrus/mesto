@@ -4,8 +4,6 @@ const profileEditButton = document.querySelector(".profile__edit-button");
 const buttonAddCard = document.querySelector(".profile__add-buton");
 const buttonEditWindow = document.querySelector(".popup_type_edit");
 const buttonAddWindow = document.querySelector(".popup_type_add");
-const buttonCloseEditPopup = document.querySelector(".popup__close_type_edit");
-const buttonCloseAddPopup = document.querySelector(".popup__close_type_add");
 const profileName = document.querySelector(".profile__name");
 const fieldEditProfileName = document.querySelector(".popup__name_type_edit");
 const profileProfession = document.querySelector(".profile__profession");
@@ -17,9 +15,10 @@ const cardElement = document.querySelector("#elements").content.querySelector(".
 const popupTypeImage = document.querySelector(".popup_type_image");
 const popupImage = document.querySelector(".popup__image");
 const popupImageTitle = document.querySelector(".popup__title-image");
-const buttonClosePopupImage = document.querySelector(".popup__close_type_image");
 const popups = document.querySelectorAll(".popup");
-const popupIsActive = document.querySelector(".popup_is-active");
+const buttonAddSubmit = document.querySelector('.popup__form_type_add');
+const buttonEditSubmit = document.querySelector('.popup__form_type_edit');
+
 //!функции
 
 function closePopup(popupElement) {
@@ -33,15 +32,15 @@ function openPopup(popupElement) {
 }
 
 function closePopupOverlay(e) {
-  const popupIsActive = document.querySelector(".popup_is-active");
-  if (e.target === e.currentTarget) {
+  const popupIsActive = e.currentTarget;
+  if (e.target === e.currentTarget || e.target.classList.contains('popup__close')) {
     closePopup(popupIsActive);
   }
 }
 
 function closePopupEscape(e) {
-  const popupIsActive = document.querySelector(".popup_is-active");
   if (e.key === "Escape") {
+    const popupIsActive = document.querySelector(".popup_is-active");
     closePopup(popupIsActive);
   }
 }
@@ -50,19 +49,6 @@ function openEditWindow() {
   fieldEditProfileName.value = profileName.textContent;
   fieldEditProfileProfession.value = profileProfession.textContent;
   openPopup(buttonEditWindow);
-}
-
-function saveInfo(e) {
-  e.preventDefault();
-  profileName.textContent = fieldEditProfileName.value;
-  profileProfession.textContent = fieldEditProfileProfession.value;
-  closePopup(buttonEditWindow);
-}
-
-function addFormSubmit(e) {
-  e.preventDefault();
-  elements.prepend(generateElement({ link: inputLink.value, name: inputName.value }));
-  closePopup(buttonAddWindow);
 }
 
 function togglelike(e) {
@@ -102,40 +88,35 @@ function generateElement(addCard) {
   return newElement;
 }
 
-function validationEditForm(formElement, e) {
-  if (formElement.id === "editForm") {
-    saveInfo(e);
-  }
-}
-
-function validationAddForm(formElement, e) {
-  if (formElement.id === "addForm") {
-    addFormSubmit(e);
-  }
-}
-
 //!слушатели
 
 profileEditButton.addEventListener("click", openEditWindow);
 
-buttonCloseEditPopup.addEventListener("click", () => {
-  closePopup(buttonEditWindow);
+buttonAddCard.addEventListener("click", () => {
+  inputName.value = '';
+  inputLink.value = '';
+  openPopup(buttonAddWindow);
 });
 
-buttonAddCard.addEventListener("click", () => {
-  openPopup(buttonAddWindow);
+buttonEditSubmit.addEventListener('submit', (e) => {
+  if (buttonEditSubmit.checkValidity()) {
+    e.preventDefault();
+    profileName.textContent = fieldEditProfileName.value;
+    profileProfession.textContent = fieldEditProfileProfession.value;
+    closePopup(buttonEditWindow);
+  }
+});
+
+buttonAddSubmit.addEventListener('submit', (e) => {
+  if (buttonAddSubmit.checkValidity()) {
+    e.preventDefault();
+    elements.prepend(generateElement({ link: inputLink.value, name: inputName.value }));
+    closePopup(buttonAddWindow);
+  }
 });
 
 popups.forEach((e) => {
   e.addEventListener("mousedown", closePopupOverlay);
-});
-
-buttonCloseAddPopup.addEventListener("click", () => {
-  closePopup(buttonAddWindow);
-});
-
-buttonClosePopupImage.addEventListener("click", () => {
-  closePopup(popupTypeImage);
 });
 
 initialCards.forEach((addCard) => {
