@@ -119,6 +119,7 @@ popups.forEach((e) => {
   e.addEventListener("mousedown", closePopupOverlay);
 });
 
+
 initialCards.forEach((addCard) => {
   elements.append(generateElement(addCard));
 });
