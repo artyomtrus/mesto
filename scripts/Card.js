@@ -1,13 +1,8 @@
-import {
-	popupTypeImage,
-	popupImage,
-	popupImageTitle,
-	closePopupEscape,
-} from './utils.js'
 export default class Card {
-	constructor(name, image) {
+	constructor(name, image, openPopupImage) {
 		this._name = name;
 		this._image = image;
+		this._openPopupImage = openPopupImage;
 	}
 	_addCard() {
 		const cardElement = document
@@ -20,7 +15,9 @@ export default class Card {
 
 	generateCard() {
 		this._element = this._addCard();
-		this._element.querySelector('.element__image').src = this._image;
+		this._elementImage = this._element.querySelector('.element__image');
+		this._elementImage.src = this._image;
+		this._elementImage.alt = `Изображение ${this._name}`;
 		this._element.querySelector('.element__title').textContent = this._name;
 		this._setEventListeners();
 		return this._element;
@@ -31,19 +28,13 @@ export default class Card {
 	}
 
 	_togglelike() {
-		this._element.querySelector('.element__like').classList.toggle("element__like_active");
-	}
-
-	_openPopupImage() {
-		popupImage.src = this._image;
-		popupImage.alt = this._name;
-		popupImageTitle.textContent = this._name;
-		popupTypeImage.classList.add("popup_is-active");
-		document.addEventListener("keydown", closePopupEscape);
+		this._elementLike.classList.toggle("element__like_active");
 	}
 
 	_setEventListeners() {
-		this._element.querySelector('.element__like').addEventListener('click', () => {
+		this._elementLike = this._element.querySelector('.element__like');
+
+		this._elementLike.addEventListener('click', () => {
 			this._togglelike()
 		});
 
@@ -51,8 +42,8 @@ export default class Card {
 			this._deleteCard()
 		})
 
-		this._element.querySelector('.element__image').addEventListener('click', (e) => {
-			this._openPopupImage()
+		this._elementImage.addEventListener('click', () => {
+			this._openPopupImage(this._name, this._image);
 		})
 	}
 };

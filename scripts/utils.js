@@ -20,11 +20,17 @@ function closePopupOverlay(e) {
 	}
 }
 
+function openPopup(popupElement) {
+	popupElement.classList.add("popup_is-active");
+	document.addEventListener("keydown", closePopupEscape);
+}
+
 export {
 	popupTypeImage,
 	popupImage,
 	popupImageTitle,
 	closePopupEscape,
 	closePopup,
-	closePopupOverlay
+	closePopupOverlay,
+	openPopup,
 };
