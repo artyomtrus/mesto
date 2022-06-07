@@ -1,12 +1,13 @@
 export default class Card {
-	constructor(name, image, openPopupImage) {
+	constructor(name, image, openPopupImage, templateSelector) {
 		this._name = name;
 		this._image = image;
 		this._openPopupImage = openPopupImage;
+		this._templateElement = templateSelector;
 	}
 	_addCard() {
 		const cardElement = document
-			.querySelector('#elements')
+			.querySelector(this._templateElement)
 			.content
 			.querySelector('.element')
 			.cloneNode(true);

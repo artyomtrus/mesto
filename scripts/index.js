@@ -41,7 +41,7 @@ const enableValidation = (options) => {
 enableValidation(options);
 
 function createCard(addCard) {
-  const newCard = new Card(addCard.name, addCard.image, openPopupImage);
+  const newCard = new Card(addCard.name, addCard.image, openPopupImage, '#elements');
   const cardElement = newCard.generateCard();
   return cardElement;
 }
