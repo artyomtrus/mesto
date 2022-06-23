@@ -59,6 +59,7 @@ export default class FormValidator {
 		errorElement.textContent = inputElement.validationMessage;
 		errorElement.classList.add(errorClass);
 	}
+	
 	_hideInputError(inputElement) {
 		const { inputErrorClass, errorClass } = this._options;
 
