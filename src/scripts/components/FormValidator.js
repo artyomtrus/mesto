@@ -1,4 +1,4 @@
-import options from "./validatorOptions.js";
+import options from "../utils/validatorOptions.js";
 export default class FormValidator {
 	constructor(options, formElement) {
 		this._options = options;
