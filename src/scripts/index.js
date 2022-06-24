@@ -6,6 +6,7 @@ import FormValidator from "./FormValidator.js";
 import { PopupWithImage } from "./components/PopupWithImage.js";
 import { PopupWitsForm } from "./components/PopupWithForm.js";
 import { UserInfo } from "./components/UserInfo.js";
+import '../pages/index.css';
 
 const profileEditButton = document.querySelector(".profile__edit-button");
 const buttonAddCard = document.querySelector(".profile__add-buton");
