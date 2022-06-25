@@ -1,4 +1,3 @@
-import options from "../utils/validatorOptions.js";
 export default class FormValidator {
 	constructor(options, formElement) {
 		this._options = options;
@@ -35,7 +34,7 @@ export default class FormValidator {
 	}
 
 	_disableSubmitButton() {
-		const { validButtonClass } = options;
+		const { validButtonClass } = this._options;
 		this._popupButton.classList.add(validButtonClass);
 		this._popupButton.disabled = 'disabled';
 	}
@@ -59,7 +58,7 @@ export default class FormValidator {
 		errorElement.textContent = inputElement.validationMessage;
 		errorElement.classList.add(errorClass);
 	}
-	
+
 	_hideInputError(inputElement) {
 		const { inputErrorClass, errorClass } = this._options;
 
