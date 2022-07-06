@@ -9,20 +9,27 @@
 
   <body class="page">
     <header class="header">
-      <img src="<%=require('./images/logo.svg')%>" alt="Логотип" class="header__logo" />
+      <img
+        src="<%=require('./images/logo.svg')%>"
+        alt="Логотип"
+        class="header__logo"
+      />
     </header>
 
     <main class="main">
       <section class="profile">
-        <img src="<%=require('./images/avatar.jpg')%>" alt="Аватар" class="profile__avatar" />
+        <div class="profile__avatar">
+          <button class="profile__button-avatar" type="button"></button>
+        </div>
+
         <div class="profile__info">
-          <h1 class="profile__name">Жак-Ив Кусто</h1>
+          <h1 class="profile__name"></h1>
           <button
             class="profile__edit-button opacity"
             type="button"
             aria-label="редактирование профиля"
           ></button>
-          <p class="profile__profession">Исследователь океана</p>
+          <p class="profile__profession"></p>
         </div>
         <button
           class="profile__add-buton opacity"
@@ -50,11 +57,14 @@
         />
         <div class="element__footer">
           <h2 class="element__title"></h2>
-          <button
-            class="element__like"
-            type="button"
-            aria-label="лайк"
-          ></button>
+          <div class="elenent__like-area">
+            <button
+              class="element__like"
+              type="button"
+              aria-label="лайк"
+            ></button>
+            <span class="element__like-number">0</span>
+          </div>
         </div>
       </li>
     </template>
@@ -76,7 +86,7 @@
           <input
             id="name-input"
             type="text"
-            name="popupName"
+            name="name"
             class="popup__name popup__input popup__name_type_edit"
             placeholder="Имя"
             minlength="2"
@@ -87,7 +97,7 @@
           <input
             id="profession-input"
             type="text"
-            name="popupProfession"
+            name="about"
             class="popup__profession popup__input popup__profession_type_edit"
             placeholder="О себе"
             minlength="2"
@@ -151,6 +161,40 @@
       </div>
     </div>
 
+    <div class="popup popup_type_avatar">
+      <div class="popup__container">
+        <button
+          class="popup__close popup__close_type_avatar opacity"
+          type="button"
+          aria-label="закрыть"
+        ></button>
+        <h3 class="popup__title">Обновить аватар</h3>
+        <form
+          id="avatarForm"
+          class="popup__form popup__form_type_avatar"
+          name="popupAvatarForm"
+          novalidate
+        >
+          <input
+            id="avatar-input"
+            type="url"
+            name="avatar"
+            class="popup__link popup__link_type_avatar popup__input"
+            placeholder="Ссылка на новый аватар"
+            required
+          />
+          <span class="avatar-input-error"></span>
+          <button
+            class="popup__button popup__button_type_avatar"
+            type="submit"
+            aria-label="Сохранить"
+          >
+            Сохранить
+          </button>
+        </form>
+      </div>
+    </div>
+
     <div class="popup popup_type_image">
       <div class="popup__container-image">
         <button
@@ -163,6 +207,22 @@
       </div>
     </div>
 
-    <script type="module" src="./scripts/index.js"></script>
+    <div class="popup popup_type_delete-card">
+      <div class="popup__container-delete-card">
+        <button
+          class="popup__close popup__close_type_delete_card opacity"
+          type="button"
+          aria-label="закрыть"
+        ></button>
+        <h3 class="popup__title">Вы уверены?</h3>
+        <button
+          class="popup__button popup__button_type_delete-card"
+          type="submit"
+          aria-label="Да"
+        >
+          Да
+        </button>
+      </div>
+    </div>
   </body>
 </html>
