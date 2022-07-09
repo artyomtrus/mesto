@@ -25,7 +25,7 @@ const newPopupImage = new PopupWithImage(".popup_type_image");
 const popupDelete = new PopupWithConfirmation('.popup_type_delete-card');
 const popupEdit = new PopupWithForm('.popup_type_edit', handleEditFormSubmit);
 const popupEditAvatar = new PopupWithForm('.popup_type_avatar', handleEditAvatarSubmit)
-const buttonConfirmationDelete = document.querySelector('.popup__button_type_delete-card');
+//const buttonConfirmationDelete = document.querySelector('.popup__button_type_delete-card');
 
 //!валидация
 const formValidators = {};
@@ -51,12 +51,12 @@ const API_CONFIG = {
 const api = new Api(API_CONFIG);
 
 Promise.all([api.getUserId(), api.getCards()])
-  .then(([userInfo, CardInfo]) => {
+  .then(([userInfo, cardInfo]) => {
     userInfoHandle.setUserInfo(userInfo);
     userInfoHandle.setAvatar(userInfo);
     userInfoHandle.setUserId(userInfo._id);
-    cardList.setItems(CardInfo);
-    cardList.renderItems();
+    //cardList.setItems(cardInfo);
+    cardList.renderItems(cardInfo);
   })
 
 const cardList = new Section({
@@ -66,15 +66,18 @@ const cardList = new Section({
   }
 }, '.elements');
 
+
 function generateNewCard(data) {
-  const newCard = new Card(data, '#elements', handleCardClick, handleDeleteClick, handleLikeClick, api, userInfoHandle.getUserId());
+  const myId = userInfoHandle.getUserId();
+  const newCard = new Card(data, '#elements', handleCardClick, handleDeleteClick, handleLikeClick, api, myId);
   const cardElement = newCard.generateCard();
   function handleCardClick() {
     newPopupImage.openPopup(data);
   };
 
   function handleDeleteClick(id) {
-    buttonConfirmationDelete.addEventListener('click', () => {
+    popupDelete.openPopup()
+    popupDelete.sethandleDeleteSubmit(() => {
       api.deleteCard(id)
         .then(() => {
           cardElement.remove();
@@ -86,12 +89,13 @@ function generateNewCard(data) {
     })
   }
 
-  function handleLikeClick(id, isLike) {
+  function handleLikeClick(id, isLike, likeClass) {
     if (isLike) {
       api.deleteLike(id)
         .then((data) => {
           newCard.addLikesNumber(data.likes);
-          newCard.refreshLikesNumber(data.likes)
+          newCard.refreshLikesNumber(data.likes);
+          likeClass.classList.remove("element__like_active")
         })
         .catch((err) => {
           console.log(err);
@@ -101,7 +105,11 @@ function generateNewCard(data) {
         .then((data) => {
           newCard.addLikesNumber(data.likes)
           newCard.refreshLikesNumber(data.likes)
-        });
+          likeClass.classList.add("element__like_active")
+        })
+        .catch((err) => {
+          console.log(err);
+        });;
     }
 
   }
@@ -115,10 +123,12 @@ function handleEditFormSubmit(e, data) {
     .then(() => {
       userInfoHandle.setUserInfo(data);
       popupEdit.closePopup();
-      popupEdit.refreshButton('Сохранить')
     })
     .catch((err) => {
       console.log(err);
+    })
+    .finally(() => {
+      popupEdit.refreshButton('Сохранить')
     })
     ;
 }
@@ -133,10 +143,12 @@ function handleAddFormSubmit(e, getInputValues) {
     .then((data) => {
       cardList.addItem(generateNewCard(data), isBefore);
       popupAdd.closePopup();
-      popupAdd.refreshButton('Создать')
     })
     .catch((err) => {
       console.log(err);
+    })
+    .finally(() => {
+      popupAdd.refreshButton('Создать')
     });
 }
 
@@ -146,12 +158,16 @@ function handleEditAvatarSubmit(e, avatar) {
     .then((data) => {
       userInfoHandle.setAvatar(data);
       popupEditAvatar.closePopup();
-      popupEditAvatar.refreshButton('Сохранить')
+    })
+    .catch((err) => {
+      console.log(err);
+    })
+    .finally(() => {
+      popupEditAvatar.refreshButton('Сохранить');
     })
 }
 
 buttonAddCard.addEventListener("click", () => {
-  buttonAddSubmit.reset();
   formValidators['popupAddForm'].resetValidation();
   popupAdd.openPopup();
 });
@@ -165,6 +181,7 @@ profileEditButton.addEventListener("click", () => {
 });
 
 buttonEditAvatar.addEventListener('click', () => {
+  formValidators['popupAvatarForm'].resetValidation();
   popupEditAvatar.openPopup();
 })
 
