@@ -6,10 +6,6 @@ export class PopupWithConfirmation extends Popup {
     this._popupButtonDelete = this._popup.querySelector('.popup__button_type_delete-card')
   }
 
-  closePopup = () => {
-    this._popup.classList.remove("popup_is-active");
-  }
-
   sethandleDeleteSubmit(handleDeleteSubmit) {
     this._handleDeleteSubmit = handleDeleteSubmit;
   }

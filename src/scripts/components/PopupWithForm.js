@@ -16,9 +16,9 @@ export class PopupWithForm extends Popup {
     return this._formValues;
   }
 
-  closePopup = () => {
+  closePopup() {
     this._form.reset();
-    return super.closePopup();
+    super.closePopup();
   }
 
   setEventListeners() {

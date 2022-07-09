@@ -1,5 +1,5 @@
 export default class Card {
-  constructor(data, templateSelector, handleCardClick, handleDeleteClick, handleLikeClick, api, myId) {
+  constructor(data, templateSelector, handleCardClick, handleDeleteClick, handleLikeClick, myId) {
     this._name = data.name;
     this._image = data.link;
     this._handleCardClick = handleCardClick;
@@ -10,8 +10,8 @@ export default class Card {
     this._id = data._id;
     this._handleDeleteClick = handleDeleteClick;
     this._handleLikeClick = handleLikeClick;
-    this._api = api;
   }
+
   _addCard() {
     const cardElement = document
       .querySelector(this._templateElement)
@@ -60,8 +60,20 @@ export default class Card {
     this._handleDeleteClick(this._id);
   }
 
+  setDeleteCard() {
+    this._element.remove();
+  }
+
+  addLikeCard() {
+    this._elementLike.classList.add("element__like_active");
+  }
+
+  deleteLikeCard() {
+    this._elementLike.classList.remove("element__like_active");
+  }
+
   _togglelike() {
-    this._handleLikeClick(this._id, this._isLike(), this._elementLike);
+    this._handleLikeClick(this._id, this._isLike());
   }
 
   _setEventListeners() {

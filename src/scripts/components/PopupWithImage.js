@@ -7,11 +7,6 @@ export class PopupWithImage extends Popup {
     this._popupImageTitle = this._popup.querySelector(".popup__title-image");
   }
 
-  closePopup() {
-    this._popup.classList.remove("popup_is-active");
-    document.removeEventListener("keydown", this._handleEscClose);
-  }
-
   openPopup(data) {
     this._popupImage.src = data.link;
     this._popupImage.alt = `Изображение ${data.name}`;

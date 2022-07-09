@@ -69,7 +69,7 @@ const cardList = new Section({
 
 function generateNewCard(data) {
   const myId = userInfoHandle.getUserId();
-  const newCard = new Card(data, '#elements', handleCardClick, handleDeleteClick, handleLikeClick, api, myId);
+  const newCard = new Card(data, '#elements', handleCardClick, handleDeleteClick, handleLikeClick, myId);
   const cardElement = newCard.generateCard();
   function handleCardClick() {
     newPopupImage.openPopup(data);
@@ -80,7 +80,7 @@ function generateNewCard(data) {
     popupDelete.sethandleDeleteSubmit(() => {
       api.deleteCard(id)
         .then(() => {
-          cardElement.remove();
+          newCard.setDeleteCard();
           popupDelete.closePopup();
         })
         .catch((err) => {
@@ -89,13 +89,13 @@ function generateNewCard(data) {
     })
   }
 
-  function handleLikeClick(id, isLike, likeClass) {
+  function handleLikeClick(id, isLike) {
     if (isLike) {
       api.deleteLike(id)
         .then((data) => {
           newCard.addLikesNumber(data.likes);
           newCard.refreshLikesNumber(data.likes);
-          likeClass.classList.remove("element__like_active")
+          newCard.deleteLikeCard();
         })
         .catch((err) => {
           console.log(err);
@@ -105,7 +105,7 @@ function generateNewCard(data) {
         .then((data) => {
           newCard.addLikesNumber(data.likes)
           newCard.refreshLikesNumber(data.likes)
-          likeClass.classList.add("element__like_active")
+          newCard.addLikeCard();
         })
         .catch((err) => {
           console.log(err);
